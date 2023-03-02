@@ -5,5 +5,5 @@ typedef complex double pt;
 
 double p2l(pt a, pt b, pt c)
 {
-	return cimag((c - a)*cexp(-carg(b - a)*I));
+    return cimag((c - a)*cexp(-carg(b - a)*I));
 }
