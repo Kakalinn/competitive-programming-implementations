@@ -1,5 +1,5 @@
-// edges are (x[i], y[i]). for directed graph two edges must be added.
-// n nodes and m edges in directed (m/2 edges in undirected).
+// edges are (x[i], y[i]). for undirected graph two edges must be added.
+// n nodes and m edges in directed (m/2 edges in directed).
 // gg is a buffer to store the data. must be size m + n, at least.
 // the degree of x is g[x][-1].
 void tograph(int **g, int *gg, int *x, int *y, int n, int m)

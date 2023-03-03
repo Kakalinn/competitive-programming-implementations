@@ -4,6 +4,7 @@
 #define per(E, F) for (E = (F) - 1; E >= 0; E--)
 int min(int a, int b) { if (a > b) return b; return a; }
 int max(int a, int b) { if (a < b) return b; return a; }
+
 int get_int()
 {
     int r = 0, c = getchar(), s = 1;
