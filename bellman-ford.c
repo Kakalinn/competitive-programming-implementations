@@ -1,6 +1,6 @@
 void bellman_ford(ll **g, ll n, ll m, ll s, ll *d)
 {
-    ll i, j, k, x, w, qe = 0, qs = 0, q[n];
+    ll i, j, k, x, w, q[n];
     rep(i, n) d[i] = i == s ? 0 : INF, q[i] = i == s ? 0 : -1;
     rep(i, n - 1) rep(j, n) if (q[j] == i) rep(k, g[j][-1])
     {
