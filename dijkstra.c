@@ -27,10 +27,9 @@ void dijkstra(ll **g, ll n, ll m, ll s, ll *d)
 {
     ll i, x, w;
     par q[n + m + 1];
-    rep(i, n) d[i] = INF;
+    rep(i, n) d[i] = i == s ? 0 : INF;
     init(q);
     push(q, topar(0, s));
-    d[s] = 0;
     while (size(q) > 0)
     {
         w = peek(q).x, x = peek(q).y; pop(q);
