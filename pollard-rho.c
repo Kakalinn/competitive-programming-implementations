@@ -1,15 +1,10 @@
 typedef __int128 lll;
 ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a%b); }
 ll bigprod(ll x, ll y, ll m) { return ((lll)x*y)%m; }
-ll modpow(ll x, ll n, ll m)
+ll modpow(ll x, ll y, ll m) 
 { 
-    ll r = 1;
-    while (n > 0) 
-    { 
-        if (n%2 == 1) r = bigprod(r, x, m);
-        n = n/2;
-        x = bigprod(x, x, m);
-    } 
+    ll r;
+    for (r = 1; y > 0; y = y/2, x = bigprod(x, x, m)) if (y&1) r = bigprod(r, x, m);
     return r; 
 }
 
@@ -31,7 +26,7 @@ ll miller_rabin(ll n)
 }
 
 ll rho(ll n)
-{ // skilar vonandi thaetti i |n|
+{
     ll s[8] = {2, 3, 4, 5, 7, 11, 13, 1031}, i, j, a, x, y, d;
     for (a = 1;; a++) rep(j, 8)
     {
