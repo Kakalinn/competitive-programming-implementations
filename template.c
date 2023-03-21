@@ -2,8 +2,8 @@
 #define getchar() fgetc_unlocked(stdin)
 #define rep(E, F) for (E = 0; E < (F); E++)
 #define per(E, F) for (E = (F) - 1; E >= 0; E--)
-int min(int a, int b) { if (a > b) return b; return a; }
-int max(int a, int b) { if (a < b) return b; return a; }
+int min(int a, int b) { return a < b ? a : b; }
+int max(int a, int b) { return a > b ? a : b; }
 
 int get_int()
 {
