@@ -1,9 +1,8 @@
-ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a%b); }
 ll bigprod(ll x, ll y, ll m) { return ((__int128)x*y)%m; }
 ll modpow(ll x, ll y, ll m) 
 { 
     ll r;
-    for (r = 1; y > 0; y = y/2, x = (x*x)%m) if (y&1) r = (r*x)%m;
+    for (r = 1; y > 0; y = y/2, x = bigprod(x, x, m)) if (y&1) r = bigprod(r, x, m);
     return r; 
 }
 
