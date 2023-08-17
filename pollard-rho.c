@@ -43,7 +43,7 @@ ll rho(ll n)
 }
 
 ll pollard_rho(ll n, ll *a)
-{ // thattar |n| með rho(...) og setur thaettina i |a| og skilar fjölda
+{ // Þáttar n með rho(...) og setur thaettina i a og skilar fjölda.
     ll i, s[200], ss = 0, c = 0, p[6] = {2, 3, 5, 7, 11, 13};
     rep(i, 6) while (n%p[i] == 0) n /= p[i], a[c++] = p[i];
     s[ss++] = n;
