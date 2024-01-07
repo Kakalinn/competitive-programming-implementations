@@ -1,6 +1,29 @@
 // something is NEEDED (testing? clear bounds?)
+
+// Usage:  suffix_array(s, n, p);
+// Before: s is a string of length n and p is an array of length n + 1.
+// After:  p[i] is the rank of the suffix of s starting at index i,
+//           when sorted alphabetically.
+//
+// Usage:  lcp(s, n, p, l);
+// Before: s, n, and p are as in the description of suffix_array(...).
+//           l is an array of length n - 1.
+// After:  l[i] is the length of the common prefix of the suffix of s
+//           starting at indices p[i] and p[i] + 1.
+//
+// Usage:  repk(s, n, p, l, k);
+// Before: s, n, p, and l are as in the description of lcp(...).
+//           k is and integer.
+// After:  All substrings of s of length k that appear more than once
+//           in s have been printed.
+//
+// Note:   suffix_array(...) runs in O(n log n). For a general alphabeta
+//           of size z it runs in O(z + n log n).
+//         lcp(...) runs in O(n).
+//         lcp(...) runs in O(n) if you don't count the printing.
+
 void suffix_array(char* s, int n, int* p)
-{ // Eftir er |p| suffix array.  Fylkid |p| tharf ad vera med |n| + 1 stak.
+{
     s[n] = ' ' - 1, s[n + 1] = '\0'; n++;
     int i, k = 1, a = 256, h;
     int c[n], g[a], gg[n], pn[n], cn[n];
@@ -26,7 +49,7 @@ void suffix_array(char* s, int n, int* p)
 }
 
 void lcp(char* s, int n, int* p, int* l)
-{ // Eftir er |l| LCP fylki fyrir suffix fylki |p|.  Fylkid |l| tharf ad vera med |n| - 1 stak.
+{
     int a[n], i, j, k = 0;
     rep(i, n) a[p[i]] = i;
     rep(i, n)
@@ -40,7 +63,7 @@ void lcp(char* s, int n, int* p, int* l)
 }
 
 void repk(char* s, int n, int* p, int* l, int k)
-{ // Prentar alla endurteknu hlutstrengi af lengd |k|.
+{
     if (k == 0) return;
     int i, j = 1;
     rep(i, n - 1)
