@@ -11,7 +11,7 @@ void sort(int *a, int n)
     {
         rep(i, 1 << BASE) c[i] = 0;
         rep(i, n) c[GET(b[e&1][i], e)]++;
-        rep(i, 1 << BASE) if (i != 0) c[i] += c[i - 1];
+        rep(i, (1 << BASE) - 1) c[i + 1] += c[i];
         per(i, n) b[(~e)&1][--c[GET(b[e&1][i], e)]] = b[e&1][i];
     }
     rep(i, n) a[i] = b[e&1][i];

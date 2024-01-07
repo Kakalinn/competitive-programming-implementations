@@ -57,5 +57,5 @@ void urec(ll *p, ll i, ll j, ll x, ll y, ll z, ll e)
 }
 void update(ll *p, ll x, ll y, ll z) { urec(p, 0, p[0] - 1, x, y, z, 1); }
 
-void init(ll *p, ll n) { for (int i = 0; i < 4*n; i++) p[i] = i == 0 ? n : 0; }
+void init(ll *p, ll n) { irep(i, 4*n) p[i] = i == 0 ? n : 0; }
 

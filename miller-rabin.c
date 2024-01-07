@@ -22,6 +22,3 @@ int miller_rabin(ll n)
     return 1;
 }
 
-
-
-

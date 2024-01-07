@@ -1,6 +1,7 @@
+#define MAXN 1000001
 #define ALPHABET 26
 typedef struct { int t[ALPHABET], v; } trienode;
-typedef struct { int s, r; trienode m[1000000]; } trie;
+typedef struct { int s, r; trienode m[MAXN]; } trie;
 int trie_node(trie *t, int v)
 {
     int i;
