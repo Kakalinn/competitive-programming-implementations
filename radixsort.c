@@ -1,4 +1,21 @@
 // tested: woodcutting, massivecardgame, magicsequences
+
+// Usage:  sort(a, n);
+// Before: n >= 0 is an integer and a is an array of size n.
+//         All elements of a must be positive.
+// After:  a is sorted in increasing order.
+//
+// Note:   If all entries in a are smaller than M then it runs
+//           in O((n + 2^BASE)*log M). Although this looks
+//           worse than the standard O(n log n), the constant
+//           is better, because the bases of the logarithm are
+//           different (BASE and 2, repsectively). Effectively,
+//           it is preforming log_BASE M counting sorts. So
+//           if M <= BASE, then the time complexity
+//           is O(n + BASE).
+//         More testing is NEEDED for different values of BASE.
+//         Note that no divisions are performed.
+
 #define BASE 16
 #define GET(E, F) (((E) >> ((F)*BASE))&m)
 void sort(int *a, int n)
