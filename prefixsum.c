@@ -23,7 +23,8 @@
 //           (see segment-tree.c), but is not an issue if there are no
 //           updates.
 
-void init(int *p, int n) { irep(i, n) if (i != 0) p[i] += p[i - 1]; }
-void update(int *p, int x, int z) { irep(i, x + 1) p[i] += z; }
-int query(int *p, int x, int y) { return p[y] - (x == 0 ? 0 : p[x - 1]); }
+void init(ll *p, ll n) { iper(i, n) p[i + 1] = p[i]; p[0] = n; irep(i, n - 1) p[i + 2] += p[i + 1];}
+void update(ll *p, ll x, ll z) { iper(i, p[0] - x) p[x + i + 1] += z; }
+ll query(ll *p, ll x, ll y) { return y < x ? 0 : (p[y + 1] - (x == 0 ? 0 : p[x])); }
+void set(ll *p, ll x, ll z) { update(p, x, -query(p, x, x)); update(p, x, z); }
 
