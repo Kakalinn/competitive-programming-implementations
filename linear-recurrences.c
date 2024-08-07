@@ -23,7 +23,7 @@ void mul(ll *a, ll *b, ll *c, ll *t, ll n)
 }
 
 ll linrec(ll *a, ll *c, ll n, ll l)
-{ // Computes a_n for the recurrence a_k = sum_{j = 1}^l a_{k - j}c_j.
+{
     ll x[l], r[l], t[2*l], i, z = 0;
     rep(i, l) x[i] = i == 1, r[i] = i == 0;
     for (; n; mul(x, x, c, t, l), n /= 2) if (n%2) mul(r, x, c, t, l);
