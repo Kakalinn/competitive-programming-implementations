@@ -32,7 +32,7 @@
 //           it is constant on connected components for a fixed p.
 
 int find(int *p, int x) { return p[x] < 0 ? x : (p[x] = find(p, p[x])); }
-void init(int *p, int n) { int i; rep(i, n) p[i] = -1; }
+void init(int *p, int n) { irep(i, n) p[i] = -1; }
 int size(int *p, int x) { return -p[find(p, x)]; }
 int check(int *p, int x, int y) { return find(p, x) == find(p, y); }
 void join(int *p, int x, int y)

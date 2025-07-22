@@ -1,5 +1,5 @@
 // tested: fenwick
-// compare, time-wise, to bfs numbering and test more. this is NEEDED.
+// compare time-wise to bfs numbering and test more. this is NEEDED.
 
 // Usage:  init(p, n);
 // Before: p is an array of size 4*n (IMPORTANT).
