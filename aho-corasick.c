@@ -7,18 +7,15 @@ typedef struct { int s, r, l; trienode m[MAXN]; listnode w[MAXN];} trie;
 int val(char c) { return c - ' '; }
 int list_node(trie *t, int v, int n)
 {
-    t->w[t->l].v = v,
-        t->w[t->l].n = n;
+    t->w[t->l].v = v, t->w[t->l].n = n;
     return t->l++;
 }
 int trie_node(trie *t, int p, int c)
 {
-    int i;
     memset(t->m[t->s].t, -1, sizeof t->m[t->s].t);
     memset(t->m[t->s].g, -1, sizeof t->m[t->s].g);
-    //rep(i, ALPHABET) t->m[t->s].t[i] = t->m[t->s].g[i] = -1;
-    t->m[t->s].l = -1, t->m[t->s].e = -1, t->m[t->s].p = p,
-        t->m[t->s].c = c, t->m[t->s].d = -1;
+    t->m[t->s].l = t->m[t->s].e = t->m[t->s].d = -1;
+    t->m[t->s].p = p, t->m[t->s].c = c;
     return t->s++;
 }
 void trie_init(trie *t) { t->s = t->l = 0, t->r = trie_node(t, -1, -1); }
@@ -59,7 +56,6 @@ ll first(ll x) { return x >> 32; }
 ll second(ll x) { return x&((1LL << 32) - 1); }
 
 trie t; // global svo það keyri locally.
-#define MAXM 480000
 int aho_corasick(char *s, char **p, int m, ll *r)
 {
     trie_init(&t);
@@ -80,3 +76,4 @@ int aho_corasick(char *s, char **p, int m, ll *r)
     }
     return i;
 }
+
