@@ -13,10 +13,10 @@ int val(char c) { return c - 'a'; }
 int search(trie *t, char *s)
 {
   int h = t->r;
-  while (*s != '\0')
+  for (; *s; s++)
   {
     if (t->m[h].t[val(*s)] == -1) t->m[h].t[val(*s)] = node(t, 0);
-    h = t->m[h].t[val(*s)], s++;
+    h = t->m[h].t[val(*s)];
   }
   return h;
 }
@@ -52,3 +52,4 @@ void init(trie *t) { t->s = 0, t->r = node(t, 0); }
 void inc(trie *t, char *s) { t->m[search(t, s)].v++; }
 void dec(trie *t, char *s) { t->m[search(t, s)].v--; }
 int  cnt(trie *t, char *s) { return t->m[search(t, s)].v; }
+
